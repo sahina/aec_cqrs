@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs", "src\app\Aec.Cqrs\Aec.Cqrs.csproj", "{97EE98C1-E93A-408F-BB65-010DA110ECDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Tests.Unit", "src\test\Aec.Cqrs.Tests.Unit\Aec.Cqrs.Tests.Unit.csproj", "{915B36C8-FEFB-466D-8E11-71F5092E2343}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B87E09DD-9FEC-4084-8FC6-8A27C68D17B8}"
+	ProjectSection(SolutionItems) = preProject
+		src\packaging\Nuget\Aec.Cqrs.nuspec = src\packaging\Nuget\Aec.Cqrs.nuspec
+		build.cmd = build.cmd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97EE98C1-E93A-408F-BB65-010DA110ECDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EE98C1-E93A-408F-BB65-010DA110ECDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EE98C1-E93A-408F-BB65-010DA110ECDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EE98C1-E93A-408F-BB65-010DA110ECDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
