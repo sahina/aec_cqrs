@@ -61,7 +61,7 @@
     <Compile Include="MemoryMessageRouter.cs" />
     <Compile Include="CommandHandler.cs" />
     <Compile Include="MessageHandler.cs" />
-    <Compile Include="AbstractIdentity.cs" />
+    <Compile Include="Identity.cs" />
     <Compile Include="NullBus.cs" />
     <Compile Include="NullID.cs" />
     <Compile Include="DomainException.cs" />

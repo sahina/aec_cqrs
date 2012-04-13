@@ -15,7 +15,7 @@ namespace Aec.Cqrs
         /// <param name="update">The update method (called to update an existing entity, if it exists).</param>
         /// <returns></returns>
         public static TEntity AddOrUpdate<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self,
-                                                         TKey key, Func<TEntity> addFactory, Action<TEntity> update)
+            TKey key, Func<TEntity> addFactory, Action<TEntity> update)
         {
             return self.AddOrUpdate(key, addFactory, entity =>
             {
@@ -34,8 +34,8 @@ namespace Aec.Cqrs
         /// <param name="newView">The new view that will be saved, if entity does not already exist</param>
         /// <param name="updateViewFactory">The update method (called to update an existing entity, if it exists).</param>
         /// <returns></returns>
-        public static TEntity AddOrUpdate<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self,
-                                                         TKey key, TEntity newView, Action<TEntity> updateViewFactory)
+        public static TEntity AddOrUpdate<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self, 
+            TKey key, TEntity newView, Action<TEntity> updateViewFactory)
         {
             return self.AddOrUpdate(key, () => newView, view =>
             {
@@ -55,7 +55,7 @@ namespace Aec.Cqrs
         /// <param name="newEntity">The new entity.</param>
         /// <returns></returns>
         public static TEntity Add<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self,
-                                                 TKey key, TEntity newEntity)
+            TKey key, TEntity newEntity)
         {
             return self.AddOrUpdate(key, newEntity, e =>
             {
@@ -74,7 +74,7 @@ namespace Aec.Cqrs
         /// <param name="change">The change.</param>
         /// <returns></returns>
         public static TEntity UpdateOrThrow<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self,
-                                                           TKey key, Func<TEntity, TEntity> change)
+            TKey key, Func<TEntity, TEntity> change)
         {
             return self.AddOrUpdate(key, () =>
             {
@@ -92,7 +92,8 @@ namespace Aec.Cqrs
         /// <param name="key">The key.</param>
         /// <param name="change">The change.</param>
         /// <returns></returns>
-        public static TEntity UpdateOrThrow<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self, TKey key, Action<TEntity> change)
+        public static TEntity UpdateOrThrow<TKey, TEntity>(this IAtomicWriter<TKey, TEntity> self,
+            TKey key, Action<TEntity> change)
         {
             return self.AddOrUpdate(key, () =>
             {
@@ -111,7 +112,7 @@ namespace Aec.Cqrs
         /// <param name="update">The update.</param>
         /// <returns></returns>
         public static TView UpdateEnforcingNew<TKey, TView>(this IAtomicWriter<TKey, TView> self,
-                                                            TKey key, Action<TView> update) where TView : new()
+            TKey key, Action<TView> update) where TView : new()
         {
             return self.AddOrUpdate(key, () =>
             {

@@ -1,6 +1,6 @@
 namespace Aec.Cqrs
 {
-    public abstract class AbstractIdentity<TKey> : IIdentity
+    public class Identity<TKey> : IIdentity
     {
         public TKey ID { get; protected set; }
 
@@ -9,7 +9,7 @@ namespace Aec.Cqrs
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
 
-            var identity = obj as AbstractIdentity<TKey>;
+            var identity = obj as Identity<TKey>;
 
             return identity != null && identity.ID.Equals(ID);
         }
