@@ -47,6 +47,7 @@
     <Compile Include="EventHandled.cs" />
     <Compile Include="ExtendAtomicEntityWriter.cs" />
     <Compile Include="IAggregate.cs" />
+    <Compile Include="IAggregateRootFactory.cs" />
     <Compile Include="IAggregateState.cs" />
     <Compile Include="IAtomicReader.cs" />
     <Compile Include="IAtomicWriter.cs" />

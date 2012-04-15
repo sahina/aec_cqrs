@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Aec.Cqrs.Tests.Unit.Fakes
 {
-    public class AccountFactory : AggregateRootFactory
+    public class AccountFactory : AggregateRootFactory, IAggregateRootFactory
     {
         public AccountFactory(IEventBus eventBus, IRecordStorageFactory storageFactory)
             : base(eventBus, storageFactory)
