@@ -17,7 +17,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
 
         public void When(AccountCreated e)
         {
-            ID = e.ID;
+            ID = e.Identity;
         }
 
         #endregion

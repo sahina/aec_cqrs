@@ -4,11 +4,11 @@
     {
         public CreateAccount(AccountID id)
         {
-            ID = id;
+            Identity = id;
         }
         #region Implementation of ICommand<out AccountID>
 
-        public AccountID ID { get; private set; }
+        public AccountID Identity { get; private set; }
 
         #endregion
     }

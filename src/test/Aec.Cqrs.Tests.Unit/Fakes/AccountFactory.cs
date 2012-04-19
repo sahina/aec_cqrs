@@ -18,7 +18,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
                 throw new ArgumentNullException("commands");
 
             var incomingCommands = commands.ToList();
-            var id = incomingCommands.First().ID;
+            var id = incomingCommands.First().Identity;
 
             var storage = StorageFactory.GetOrCreateStorage(id);
             var records = storage.GetRecords(0, int.MaxValue).ToList();

@@ -4,7 +4,7 @@ namespace Aec.Cqrs
     {
         #region Implementation of IIdentity
 
-        public string GetID()
+        public string GetIdenfitier()
         {
             return string.Empty;
         }

@@ -23,7 +23,7 @@ namespace Aec.Cqrs
             var applied = Execute(commands);
 
             // save applied events to storage
-            AppendToStorage(applied.Events.First().ID, applied);
+            AppendToStorage(applied.Events.First().Identity, applied);
 
             // dispatch applied events to message bus
             DispatchEvents(applied);

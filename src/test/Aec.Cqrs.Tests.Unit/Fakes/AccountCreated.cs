@@ -4,12 +4,12 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
     {
         public AccountCreated(AccountID id)
         {
-            ID = id;
+            Identity = id;
         }
 
         #region Implementation of IEvent<out AccountID>
 
-        public AccountID ID { get; private set; }
+        public AccountID Identity { get; private set; }
 
         #endregion
     }

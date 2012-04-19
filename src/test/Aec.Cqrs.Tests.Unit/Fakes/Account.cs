@@ -36,7 +36,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
             if (m_state.Version != 0)
                 throw new DomainException("Account has non-zero version");
 
-            Apply(new AccountCreated(c.ID));
+            Apply(new AccountCreated(c.Identity));
         }
 
         #endregion

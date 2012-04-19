@@ -6,7 +6,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
     {
         public AccountID(Guid id)
         {
-            ID = id;
+            Identifier = id;
         }
     }
 }

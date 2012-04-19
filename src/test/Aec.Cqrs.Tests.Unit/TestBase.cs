@@ -7,7 +7,7 @@ namespace Aec.Cqrs.Tests.Unit
     public class TestBase
     {
         protected MessageSender Sender;
-        protected AccountID ID;
+        protected AccountID Identifier;
         protected ICommandBus CommandBus;
         protected IEventBus EventBus;
         protected IRegisterMessageRoutes Router;
@@ -48,7 +48,7 @@ namespace Aec.Cqrs.Tests.Unit
             // Misc
 
             Sender = new MessageSender(new IQueueWriter[] { queueWriter });
-            ID = new AccountID(Guid.NewGuid());
+            Identifier = new AccountID(Guid.NewGuid());
         }
     }
 }
