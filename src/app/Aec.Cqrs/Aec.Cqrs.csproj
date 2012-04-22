@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AggregateRootFactory.cs" />
     <Compile Include="Applied.cs" />
+    <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="ExtendAtomicEntityWriter.cs" />
