@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace Aec.Cqrs
 {
-    public class MemoryAtomicReaderWriter<TKey, TItem> : IAtomicReader<TKey, TItem>, IAtomicWriter<TKey, TItem>
+    public class MemoryDocumentReaderWriter<TKey, TItem> : IDocumentReader<TKey, TItem>, IDocumentWriter<TKey, TItem>
     {
         public Dictionary<TKey, TItem> Storage { get; set; }
 
-        public MemoryAtomicReaderWriter()
+        public MemoryDocumentReaderWriter()
         {
             Storage = new Dictionary<TKey, TItem>();
         }
 
-        #region Implementation of IAtomicReader<in TKey,TEntity>
+        #region Implementation of IDocumentReader<in TKey,TEntity>
 
         public bool TryGet(TKey key, out TItem item)
         {
@@ -21,7 +21,7 @@ namespace Aec.Cqrs
 
         #endregion
 
-        #region Implementation of IAtomicWriter<in TKey,TEntity>
+        #region Implementation of IDocumentWriter<in TKey,TEntity>
 
         public TItem AddOrUpdate(TKey key, Func<TItem> addFactory, Func<TItem, TItem> update)
         {

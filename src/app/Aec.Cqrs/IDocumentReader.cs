@@ -1,6 +1,6 @@
 namespace Aec.Cqrs
 {
-    public interface IAtomicReader<in TKey, TItem>
+    public interface IDocumentReader<in TKey, TItem>
     {
         bool TryGet(TKey key, out TItem item);
     }
