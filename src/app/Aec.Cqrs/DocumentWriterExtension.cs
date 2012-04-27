@@ -2,7 +2,7 @@ using System;
 
 namespace Aec.Cqrs
 {
-    public static class ExtendAtomicEntityWriter
+    public static class DocumentWriterExtension
     {
         /// <summary>
         /// Given a <paramref name="key"/> either adds a new <typeparamref name="TEntity"/> OR updates an existing one.

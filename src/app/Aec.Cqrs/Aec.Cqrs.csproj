@@ -46,7 +46,7 @@
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
     <Compile Include="EventHandled.cs" />
-    <Compile Include="ExtendAtomicEntityWriter.cs" />
+    <Compile Include="DocumentWriterExtension.cs" />
     <Compile Include="IAggregate.cs" />
     <Compile Include="IAggregateRootFactory.cs" />
     <Compile Include="IAggregateState.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IEventHandler.cs" />
+    <Compile Include="IRecordStorageConfig.cs" />
     <Compile Include="IRegisterMessageRoutes.cs" />
     <Compile Include="IRouteMessages.cs" />
     <Compile Include="MemoryDocumentReaderWriter.cs" />

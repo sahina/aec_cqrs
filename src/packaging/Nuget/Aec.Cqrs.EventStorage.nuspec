@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Aec.Cqrs.EventStorage</id>
+        <version>1.0.1</version>
+        <authors>Altug Sahin</authors>
+        <owners>Altug Sahin</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Aec.Cqrs.EventStorage Library</description>
+        <tags>Aec.Cqrs.EventStorage Library</tags>
+        <dependencies>
+            <dependency id="Aec.Cqrs"
+                        version="" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Aec.Cqrs.EventStorage.dll"
+              target="lib\net40" />
+        <file src="Aec.Cqrs.EventStorage.pdb"
+              target="lib\net40" />
+    </files>
+</package>

@@ -7,9 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Tests.Unit", "src\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B87E09DD-9FEC-4084-8FC6-8A27C68D17B8}"
 	ProjectSection(SolutionItems) = preProject
+		src\packaging\Nuget\Aec.Cqrs.EventStorage.nuspec = src\packaging\Nuget\Aec.Cqrs.EventStorage.nuspec
 		src\packaging\Nuget\Aec.Cqrs.nuspec = src\packaging\Nuget\Aec.Cqrs.nuspec
 		build.cmd = build.cmd
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.EventStorage", "src\app\Aec.Cqrs.EventStorage\Aec.Cqrs.EventStorage.csproj", "{806EE2C1-0200-4B99-8444-279F6664D2CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +28,10 @@ Global
 		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{915B36C8-FEFB-466D-8E11-71F5092E2343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{806EE2C1-0200-4B99-8444-279F6664D2CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{806EE2C1-0200-4B99-8444-279F6664D2CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{806EE2C1-0200-4B99-8444-279F6664D2CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{806EE2C1-0200-4B99-8444-279F6664D2CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
