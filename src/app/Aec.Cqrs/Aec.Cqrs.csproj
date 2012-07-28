@@ -51,6 +51,7 @@
     <Compile Include="IAggregateRootFactory.cs" />
     <Compile Include="IAggregateState.cs" />
     <Compile Include="IDocumentReader.cs" />
+    <Compile Include="IDocumentStorage.cs" />
     <Compile Include="IDocumentWriter.cs" />
     <Compile Include="ICommandBus.cs" />
     <Compile Include="ICommandHandler.cs" />
