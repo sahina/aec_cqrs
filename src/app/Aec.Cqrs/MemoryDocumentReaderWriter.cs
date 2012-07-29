@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace Aec.Cqrs
 {
-    public class MemoryDocumentReaderWriter<TKey, TItem> : IDocumentReader<TKey, TItem>, IDocumentWriter<TKey, TItem>
+    public class MemoryDocumentReaderWriter<TKey, TItem> :
+        IDocumentReader<TKey, TItem>,
+        IDocumentWriter<TKey, TItem> where TKey : IIdentity
     {
         public Dictionary<TKey, TItem> Storage { get; set; }
 

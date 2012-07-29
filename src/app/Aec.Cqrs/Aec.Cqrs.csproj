@@ -47,6 +47,8 @@
     <Compile Include="CommandHandled.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
+    <Compile Include="FileDocumentReaderWriter.cs" />
+    <Compile Include="FileDocumentStore.cs" />
     <Compile Include="IAggregate.cs" />
     <Compile Include="IAggregateRootFactory.cs" />
     <Compile Include="IAggregateState.cs" />

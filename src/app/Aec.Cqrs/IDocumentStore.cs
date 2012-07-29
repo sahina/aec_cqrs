@@ -13,7 +13,7 @@ namespace Aec.Cqrs
         /// <typeparam name="TKey">Type of document key</typeparam>
         /// <typeparam name="TItem">Type of document item</typeparam>
         /// <returns>Document reader</returns>
-        IDocumentReader<TKey, TItem> GetReader<TKey, TItem>();
+        IDocumentReader<TKey, TItem> GetReader<TKey, TItem>() where TKey : IIdentity;
 
         /// <summary>
         /// Gets document writer.
@@ -21,17 +21,24 @@ namespace Aec.Cqrs
         /// <typeparam name="TKey">Type of document key</typeparam>
         /// <typeparam name="TItem">Type of document item</typeparam>
         /// <returns>Document writer</returns>
-        IDocumentWriter<TKey, TItem> GetWriter<TKey, TItem>();
+        IDocumentWriter<TKey, TItem> GetWriter<TKey, TItem>() where TKey : IIdentity;
+
+        /// <summary>
+        /// Gets the document strategy.
+        /// </summary>
+        IDocumentStrategy Strategy { get; }
         
         /// <summary>
         /// Resets document storage
         /// </summary>
-        void Reset();
+        /// <param name="bucket">Name of bucket to reset. Bucket is used for partitioning.</param>
+        void Reset(string bucket);
         
         /// <summary>
         /// Writes saved records
         /// </summary>
-        /// <param name="records"></param>
-        void WriteContents(IEnumerable<SavedRecord> records);
+        /// <param name="bucket">Name of bucket to reset. Bucket is used for partitioning.</param>
+        /// <param name="records">Records to write store</param>
+        void WriteContents(string bucket, IEnumerable<SavedRecord> records);
     }
 }

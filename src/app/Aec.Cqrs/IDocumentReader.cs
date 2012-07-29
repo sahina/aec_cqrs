@@ -5,7 +5,7 @@ namespace Aec.Cqrs
     /// </summary>
     /// <typeparam name="TKey">Type of document key</typeparam>
     /// <typeparam name="TItem">Type of document</typeparam>
-    public interface IDocumentReader<in TKey, TItem>
+    public interface IDocumentReader<in TKey, TItem> where TKey : IIdentity
     {
         /// <summary>
         /// Gets the item for the given key.

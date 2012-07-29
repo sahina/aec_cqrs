@@ -1,5 +1,8 @@
+using System;
+
 namespace Aec.Cqrs
 {
+    [Serializable]
     public class SavedRecord
     {
         public long Version { get; private set; }

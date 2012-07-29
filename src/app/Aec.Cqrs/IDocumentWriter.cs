@@ -7,7 +7,7 @@ namespace Aec.Cqrs
     /// </summary>
     /// <typeparam name="TKey">Type of document key</typeparam>
     /// <typeparam name="TItem">Type of document</typeparam>
-    public interface IDocumentWriter<in TKey, TItem>
+    public interface IDocumentWriter<in TKey, TItem> where TKey : IIdentity
     {
         /// <summary>
         /// Adds if entity is new, otherwise updates the given entity.
