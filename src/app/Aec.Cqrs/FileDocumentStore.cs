@@ -43,6 +43,17 @@ namespace Aec.Cqrs
             Directory.CreateDirectory(path);
         }
 
+        /// <summary>
+        /// Resets all documents in storage
+        /// </summary>
+        public void ResetAll()
+        {
+            if (Directory.Exists(m_folderPath))
+                Directory.Delete(m_folderPath, true);
+            
+            Directory.CreateDirectory(m_folderPath);
+        }
+
         public void WriteContents(string bucket, IEnumerable<DocumentRecord> records)
         {
             var buck = Path.Combine(m_folderPath, bucket);

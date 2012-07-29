@@ -28,6 +28,7 @@ namespace Aec.Cqrs.Tests.Unit
                 Name = "Test Account"
             };
             m_accountID = new AccountID(m_account.AccountID);
+            m_store.ResetAll();
         }
 
         [Test]
@@ -73,20 +74,48 @@ namespace Aec.Cqrs.Tests.Unit
         }
 
         [Test]
-        public void nuclear_storage()
+        public void document_storage_should_add()
         {
             // arrange
-            //var storage = new DocumentStorage(m_store);
-            
+            var storage = new DocumentStorage(m_store);
             var bucket = m_strategy.GetEntityBucket<AccountView>();
-            //m_store.Reset(bucket);
 
             // act
-            m_store.GetWriter<AccountID, AccountView>().Add(m_accountID, m_account);
-            //storage.AddEntity(m_accountID, m_account);
+            storage.AddEntity(m_accountID, m_account);
 
             // assert
             m_store.EnumerateContents(bucket).ShouldNotBeEmpty();
+        }
+
+        [Test]
+        public void document_storage_should_delete()
+        {
+            // arrange
+            var storage = new DocumentStorage(m_store);
+            var bucket = m_strategy.GetEntityBucket<AccountView>();
+
+            // act
+            storage.AddEntity(m_accountID, m_account);
+            storage.TryDeleteEntity<AccountView>(m_accountID);
+
+            // assert
+            m_store.EnumerateContents(bucket).ShouldBeEmpty();
+        }
+
+        [Test]
+        public void document_storage_should_update()
+        {
+            // arrange
+            AccountView fetch;
+            var storage = new DocumentStorage(m_store);
+            storage.AddEntity(m_accountID, m_account);
+
+            // act
+            storage.UpdateEntity<AccountView>(m_accountID, a => a.Name = "New Name");
+            storage.TryGetEntity(m_accountID, out fetch);
+
+            // assert
+            fetch.Name.ShouldEqual("New Name");
         }
     }
 }

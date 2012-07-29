@@ -33,6 +33,11 @@ namespace Aec.Cqrs
         /// </summary>
         /// <param name="bucket">Name of bucket to reset. Bucket is used for partitioning.</param>
         void Reset(string bucket);
+
+        /// <summary>
+        /// Resets all documents in storage
+        /// </summary>
+        void ResetAll();
         
         /// <summary>
         /// Writes saved records
