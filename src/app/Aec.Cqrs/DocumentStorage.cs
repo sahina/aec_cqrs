@@ -2,16 +2,16 @@
 
 namespace Aec.Cqrs
 {
-    public class NuclearStorage
+    public class DocumentStorage
     {
         private readonly IDocumentStore m_store;
 
-        public NuclearStorage(IDocumentStore store)
+        public DocumentStorage(IDocumentStore store)
         {
             m_store = store;
         }
 
-        public void CopyFrom(NuclearStorage source, params string[] buckets)
+        public void CopyFrom(DocumentStorage source, params string[] buckets)
         {
             foreach (var bucket in buckets)
             {

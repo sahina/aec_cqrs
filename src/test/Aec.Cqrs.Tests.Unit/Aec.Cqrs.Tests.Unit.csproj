@@ -48,12 +48,14 @@
   <ItemGroup>
     <Compile Include="AggregateFactoryTests.cs" />
     <Compile Include="ConsoleObserver.cs" />
+    <Compile Include="DocumentTests.cs" />
     <Compile Include="Fakes\Account.cs" />
     <Compile Include="Fakes\AccountCreated.cs" />
     <Compile Include="Fakes\AccountCreatedHandler.cs" />
     <Compile Include="Fakes\AccountFactory.cs" />
     <Compile Include="Fakes\AccountID.cs" />
     <Compile Include="Fakes\AccountState.cs" />
+    <Compile Include="Fakes\AccountView.cs" />
     <Compile Include="Fakes\CreateAccount.cs" />
     <Compile Include="Fakes\CreateAccountHandler.cs" />
     <Compile Include="Fakes\ExpectedTestException.cs" />

@@ -12,7 +12,7 @@ namespace Aec.Cqrs
 
         public FileDocumentReaderWriter(string folder, IDocumentStrategy strategy)
         {
-            m_folder = folder;
+            m_folder = Path.Combine(folder, strategy.GetEntityBucket<TItem>()); ;
             m_strategy = strategy;
         }
 
@@ -132,7 +132,7 @@ namespace Aec.Cqrs
 
         private string GetName(TKey key)
         {
-            return Path.Combine(m_folder, key.GetIdenfitier());
+            return Path.Combine(m_folder, m_strategy.GetEntityLocation(typeof(TItem), key));
         }
 
         #endregion

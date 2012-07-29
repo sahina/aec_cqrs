@@ -76,7 +76,7 @@
     <Compile Include="CommandHandler.cs" />
     <Compile Include="MessageHandler.cs" />
     <Compile Include="Identity.cs" />
-    <Compile Include="NuclearStorage.cs" />
+    <Compile Include="DocumentStorage.cs" />
     <Compile Include="NullBus.cs" />
     <Compile Include="NullID.cs" />
     <Compile Include="DomainException.cs" />
