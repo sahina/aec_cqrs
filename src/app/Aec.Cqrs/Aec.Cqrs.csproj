@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\thirdparty\libs\nugetpackages\ServiceStack.Text.3.9.2\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
@@ -45,13 +48,17 @@
     <Compile Include="Applied.cs" />
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
+    <Compile Include="DocumentRecord.cs" />
+    <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
     <Compile Include="FileDocumentReaderWriter.cs" />
     <Compile Include="FileDocumentStore.cs" />
+    <Compile Include="FileStorageConfig.cs" />
     <Compile Include="IAggregate.cs" />
     <Compile Include="IAggregateRootFactory.cs" />
     <Compile Include="IAggregateState.cs" />
+    <Compile Include="IdentityConvert.cs" />
     <Compile Include="IDocumentReader.cs" />
     <Compile Include="IDocumentStore.cs" />
     <Compile Include="IDocumentStrategy.cs" />
@@ -69,6 +76,7 @@
     <Compile Include="CommandHandler.cs" />
     <Compile Include="MessageHandler.cs" />
     <Compile Include="Identity.cs" />
+    <Compile Include="NuclearStorage.cs" />
     <Compile Include="NullBus.cs" />
     <Compile Include="NullID.cs" />
     <Compile Include="DomainException.cs" />
@@ -96,7 +104,9 @@
     <Compile Include="RedirectToWhen.cs" />
     <Compile Include="SystemObserver.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

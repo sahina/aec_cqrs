@@ -48,6 +48,11 @@ namespace Aec.Cqrs
             return Identifier.ToString();
         }
 
+        public string GetTag()
+        {
+            return GetType().ToString().ToLowerInvariant();
+        }
+
         #endregion
     }
 }

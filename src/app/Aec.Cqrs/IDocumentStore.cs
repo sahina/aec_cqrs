@@ -39,6 +39,13 @@ namespace Aec.Cqrs
         /// </summary>
         /// <param name="bucket">Name of bucket to reset. Bucket is used for partitioning.</param>
         /// <param name="records">Records to write store</param>
-        void WriteContents(string bucket, IEnumerable<SavedRecord> records);
+        void WriteContents(string bucket, IEnumerable<DocumentRecord> records);
+
+        /// <summary>
+        /// Gets enumerable document records in the given bucket (partition)
+        /// </summary>
+        /// <param name="bucket">Bucket (partition)</param>
+        /// <returns>List of document records</returns>
+        IEnumerable<DocumentRecord> EnumerateContents(string bucket);
     }
 }

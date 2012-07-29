@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 
 namespace Aec.Cqrs
@@ -44,27 +43,47 @@ namespace Aec.Cqrs
             Directory.CreateDirectory(path);
         }
 
-        public void WriteContents(string bucket, IEnumerable<SavedRecord> records)
+        public void WriteContents(string bucket, IEnumerable<DocumentRecord> records)
         {
             var buck = Path.Combine(m_folderPath, bucket);
 
             if (!Directory.Exists(buck))
                 Directory.CreateDirectory(buck);
-
+            
             foreach (var pair in records)
             {
-                var recordPath = Path.Combine(buck, pair.Version.ToString(CultureInfo.InvariantCulture));
-                var path = Path.GetDirectoryName(recordPath) ?? "";
+                var recordPath = Path.Combine(buck, pair.Key);
 
+                var path = Path.GetDirectoryName(recordPath) ?? "";
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
 
-                var stream = new MemoryStream();
-                m_strategy.Serialize(pair.Content, stream);
+                File.WriteAllBytes(recordPath, pair.Read());
+            }
+        }
 
-                File.WriteAllBytes(recordPath, stream.ToArray());
+        /// <summary>
+        /// Gets enumerable saved s=records in the given bucket (partition)
+        /// </summary>
+        /// <param name="bucket">Bucket (partition)</param>
+        /// <returns>List of saved records</returns>
+        public IEnumerable<DocumentRecord> EnumerateContents(string bucket)
+        {
+            var full = Path.Combine(m_folderPath, bucket);
+            var dir = new DirectoryInfo(full);
+
+            if (!dir.Exists) yield break;
+
+            var fullFolder = dir.FullName;
+
+            foreach (var info in dir.EnumerateFiles("*", SearchOption.AllDirectories))
+            {
+                var fullName = info.FullName;
+                var path = fullName.Remove(0, fullFolder.Length + 1).Replace(Path.DirectorySeparatorChar, '/');
+
+                yield return new DocumentRecord(path, () => File.ReadAllBytes(fullName));
             }
         }
 

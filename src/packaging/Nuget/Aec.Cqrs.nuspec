@@ -2,12 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Aec.Cqrs</id>
-        <version>1.0.24</version>
+        <version>1.0.28</version>
         <authors>Altug Sahin</authors>
         <owners>Altug Sahin</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Aec.Cqrs Library</description>
         <tags>Aec.Cqrs Library</tags>
+        <dependencies>
+            <dependency id="ServiceStack.Text"
+                        version="" />
+        </dependencies>
     </metadata>
     <files>
         <file src="Aec.Cqrs.dll"

@@ -9,6 +9,11 @@ namespace Aec.Cqrs
             return string.Empty;
         }
 
+        public string GetTag()
+        {
+            return string.Empty;
+        }
+
         #endregion
     }
 }
