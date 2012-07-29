@@ -5,7 +5,7 @@ namespace Aec.Cqrs
     /// <summary>
     /// Projection document storage
     /// </summary>
-    public interface IDocumentStorage
+    public interface IDocumentStore
     {
         /// <summary>
         /// Gets document reader.
