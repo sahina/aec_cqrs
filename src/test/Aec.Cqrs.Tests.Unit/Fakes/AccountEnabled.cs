@@ -3,9 +3,9 @@ using System;
 namespace Aec.Cqrs.Tests.Unit.Fakes
 {
     [Serializable]
-    public class AccountCreated : IEvent<AccountID>
+    public class AccountEnabled : IEvent<AccountID>
     {
-        public AccountCreated(AccountID id)
+        public AccountEnabled(AccountID id)
         {
             Identity = id;
         }

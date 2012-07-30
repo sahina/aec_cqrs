@@ -2,6 +2,7 @@ using System;
 
 namespace Aec.Cqrs
 {
+    [Serializable]
     public class Identity<TKey> : IIdentity, IEquatable<TKey>
     {
         public TKey Identifier { get; protected set; }

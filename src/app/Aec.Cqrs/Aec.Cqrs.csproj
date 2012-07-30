@@ -49,11 +49,14 @@
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
     <Compile Include="DocumentRecord.cs" />
+    <Compile Include="SavedRecordError.cs" />
     <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
     <Compile Include="FileDocumentReaderWriter.cs" />
     <Compile Include="FileDocumentStore.cs" />
+    <Compile Include="FileRecordStorage.cs" />
+    <Compile Include="FileRecordStorageFactory.cs" />
     <Compile Include="FileStorageConfig.cs" />
     <Compile Include="IAggregate.cs" />
     <Compile Include="IAggregateRootFactory.cs" />

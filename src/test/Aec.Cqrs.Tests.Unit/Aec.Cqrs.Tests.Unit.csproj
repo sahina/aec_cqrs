@@ -52,9 +52,11 @@
     <Compile Include="Fakes\Account.cs" />
     <Compile Include="Fakes\AccountCreated.cs" />
     <Compile Include="Fakes\AccountCreatedHandler.cs" />
+    <Compile Include="Fakes\AccountEnabled.cs" />
     <Compile Include="Fakes\AccountFactory.cs" />
     <Compile Include="Fakes\AccountID.cs" />
     <Compile Include="Fakes\AccountState.cs" />
+    <Compile Include="Fakes\AccountSuspended.cs" />
     <Compile Include="Fakes\AccountView.cs" />
     <Compile Include="Fakes\CreateAccount.cs" />
     <Compile Include="Fakes\CreateAccountHandler.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="EventHandlerTests.cs" />
     <Compile Include="Fakes\IAccount.cs" />
     <Compile Include="Fakes\IAccountState.cs" />
+    <Compile Include="FileRecordStorageTests.cs" />
     <Compile Include="TestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

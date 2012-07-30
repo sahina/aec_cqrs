@@ -6,10 +6,5 @@ namespace Aec.Cqrs
         {
             return identity.GetTag() + "-" + identity.GetIdenfitier();
         }
-
-        public static string ToTransportable(IIdentity identity)
-        {
-            return identity.GetTag() + "-" + identity.GetIdenfitier();
-        }
     }
 }

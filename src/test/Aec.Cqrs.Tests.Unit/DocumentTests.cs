@@ -74,20 +74,6 @@ namespace Aec.Cqrs.Tests.Unit
         }
 
         [Test]
-        public void document_storage_should_add()
-        {
-            // arrange
-            var storage = new DocumentStorage(m_store);
-            var bucket = m_strategy.GetEntityBucket<AccountView>();
-
-            // act
-            storage.AddEntity(m_accountID, m_account);
-
-            // assert
-            m_store.EnumerateContents(bucket).ShouldNotBeEmpty();
-        }
-
-        [Test]
         public void document_storage_should_delete()
         {
             // arrange
@@ -116,6 +102,20 @@ namespace Aec.Cqrs.Tests.Unit
 
             // assert
             fetch.Name.ShouldEqual("New Name");
+        }
+
+        [Test]
+        public void document_storage_should_add()
+        {
+            // arrange
+            var storage = new DocumentStorage(m_store);
+            var bucket = m_strategy.GetEntityBucket<AccountView>();
+
+            // act
+            storage.AddEntity(m_accountID, m_account);
+
+            // assert
+            m_store.EnumerateContents(bucket).ShouldNotBeEmpty();
         }
     }
 }
