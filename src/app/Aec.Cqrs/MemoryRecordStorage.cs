@@ -48,7 +48,10 @@ namespace Aec.Cqrs
 
                 content.ToList().ForEach(m =>
                 {
-                    var savedMessage = new SavedRecord(++lastVersion, m);
+                    var version = ++lastVersion;
+                    var key = string.Format("{0}-{1:00000000}", m.GetType().Name, version);
+
+                    var savedMessage = new SavedRecord(key, version, m);
 
                     m_storage.Add(savedMessage);
                 });

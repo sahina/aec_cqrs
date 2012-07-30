@@ -60,7 +60,10 @@ namespace Aec.Cqrs.EventStorage
 
                     content.ToList().ForEach(m =>
                     {
-                        var savedMessage = new SavedRecord(++versionInStore, m);
+                        var version = ++versionInStore;
+                        var key = string.Format("{0}-{1:00000000}", m.GetType().Name, version);
+
+                        var savedMessage = new SavedRecord(key, version, m);
 
                         stream.Add(new EventMessage { Body = savedMessage });
                     });

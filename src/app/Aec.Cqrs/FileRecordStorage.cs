@@ -66,7 +66,8 @@ namespace Aec.Cqrs
             {
                 m_lock.EnterWriteLock();
 
-                var streamName = IdentityConvert.ToStream(m_id);
+                //var streamName = IdentityConvert.ToStream(m_id);
+                var streamName = m_id.GetIdenfitier();
                 var lastVersion = m_cache.ContainsKey(streamName) ? m_cache[streamName].Last().Version : 0;
 
                 content.ToList().ForEach(item =>
@@ -104,8 +105,9 @@ namespace Aec.Cqrs
                 {
                     using (var memory = new MemoryStream())
                     {
+                        var record = new SavedRecord(id, version, content);
                         var formatter = new BinaryFormatter();
-                        formatter.Serialize(memory, content);
+                        formatter.Serialize(memory, record);
 
                         var bytes = memory.ToArray();
 
@@ -117,15 +119,13 @@ namespace Aec.Cqrs
                     writer.Flush(true);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 if (writer != null)
                 {
                     writer.Close();
                     writer.Dispose();
                 }
-
-                SystemObserver.Notify(new SavedRecordError(ex, id, version, content));
             }
             finally
             {
@@ -139,7 +139,7 @@ namespace Aec.Cqrs
 
         private void AddToCache(string streamName, long version, object content)
         {
-            var record = new SavedRecord(version, content);
+            var record = new SavedRecord(streamName, version, content);
 
             m_cache.AddOrUpdate(streamName, r => new[] { record }, (s, records) => ImmutableAdd(records, record));
         }
@@ -173,8 +173,8 @@ namespace Aec.Cqrs
             {
                 m_lock.EnterWriteLock();
 
-                //foreach (var record in ReadHistory())
-                  //  AddToCache(record., record.Version, record.Content);
+                foreach (var record in ReadHistory())
+                    AddToCache(record.Key, record.Version, record.Content);
             }
             finally
             {
@@ -192,7 +192,7 @@ namespace Aec.Cqrs
                 if (file.Length == 0)
                     file.Delete();
 
-                m_cache.TryAdd(file.Name, new SavedRecord[] { });
+                //m_cache.TryAdd(file.Name, new SavedRecord[] { });
 
                 using (var reader = file.OpenRead())
                 using (var binary = new BinaryReader(reader, Encoding.UTF8))

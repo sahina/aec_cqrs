@@ -49,7 +49,6 @@
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
     <Compile Include="DocumentRecord.cs" />
-    <Compile Include="SavedRecordError.cs" />
     <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
