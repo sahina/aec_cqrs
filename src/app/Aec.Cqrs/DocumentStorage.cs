@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Aec.Cqrs
 {
@@ -32,6 +33,11 @@ namespace Aec.Cqrs
         public bool TryGetEntity<TEntity>(IIdentity key, out TEntity entity)
         {
             return m_store.GetReader<IIdentity, TEntity>().TryGet(key, out entity);
+        }
+
+        public bool TryGetAllEntities<TEntity>(out IEnumerable<TEntity> entities)
+        {
+            return m_store.GetReader<IIdentity, TEntity>().TryGetAll(out entities);
         }
 
         public TEntity AddOrUpdateEntity<TEntity>(IIdentity key, TEntity entity)

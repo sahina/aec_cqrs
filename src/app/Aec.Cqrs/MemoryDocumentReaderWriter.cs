@@ -7,18 +7,40 @@ namespace Aec.Cqrs
         IDocumentReader<TKey, TItem>,
         IDocumentWriter<TKey, TItem> where TKey : IIdentity
     {
-        public Dictionary<TKey, TItem> Storage { get; set; }
+        private readonly Dictionary<TKey, TItem> m_storage;
 
         public MemoryDocumentReaderWriter()
         {
-            Storage = new Dictionary<TKey, TItem>();
+            m_storage = new Dictionary<TKey, TItem>();
         }
 
         #region Implementation of IDocumentReader<in TKey,TEntity>
 
         public bool TryGet(TKey key, out TItem item)
         {
-            return Storage.TryGetValue(key, out item);
+            return m_storage.TryGetValue(key, out item);
+        }
+
+        /// <summary>
+        /// Gets all documents of given type.
+        /// </summary>
+        /// <param name="items">All documents of type.</param>
+        /// <returns>Returns true if documents can be returned, otherwise false</returns>
+        public bool TryGetAll(out IEnumerable<TItem> items)
+        {
+            var returned = true;
+            items = new List<TItem>();
+
+            try
+            {
+                items = m_storage.Values;
+            }
+            catch
+            {
+                returned = false;
+            }
+            
+            return returned;
         }
 
         #endregion
@@ -29,9 +51,9 @@ namespace Aec.Cqrs
         {
             TItem result;
 
-            if (Storage.ContainsKey(key))
+            if (m_storage.ContainsKey(key))
             {
-                var entity = Storage[key];
+                var entity = m_storage[key];
 
                 result = update(entity);
             }
@@ -39,7 +61,7 @@ namespace Aec.Cqrs
             {
                 result = addFactory();
 
-                Storage.Add(key, result);
+                m_storage.Add(key, result);
             }
 
             return result;
@@ -47,7 +69,7 @@ namespace Aec.Cqrs
 
         public bool TryDelete(TKey key)
         {
-            return Storage.Remove(key);
+            return m_storage.Remove(key);
         }
 
         #endregion

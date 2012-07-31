@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Aec.Cqrs.Tests.Unit.Fakes;
 using NUnit.Framework;
@@ -116,6 +117,21 @@ namespace Aec.Cqrs.Tests.Unit
 
             // assert
             m_store.EnumerateContents(bucket).ShouldNotBeEmpty();
+        }
+
+        [Test]
+        public void document_storage_should_get_all_type_items()
+        {
+            // arrange
+            var storage = new DocumentStorage(m_store);
+            storage.AddEntity(m_accountID, m_account);
+            IEnumerable<AccountView> entities;
+
+            // act
+            storage.TryGetAllEntities(out entities);
+
+            // assert
+            entities.ShouldNotBeEmpty();
         }
     }
 }

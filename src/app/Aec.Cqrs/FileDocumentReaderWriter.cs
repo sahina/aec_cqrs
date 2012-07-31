@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace Aec.Cqrs
 {
@@ -126,6 +130,28 @@ namespace Aec.Cqrs
             }
         }
 
+        /// <summary>
+        /// Gets all documents of given type.
+        /// </summary>
+        /// <param name="items">All documents of type.</param>
+        /// <returns>Returns true if documents can be returned, otherwise false</returns>
+        public bool TryGetAll(out IEnumerable<TItem> items)
+        {
+            var returned = true;
+            items = new List<TItem>();
+
+            try
+            {
+                items = ReadHistory();
+            }
+            catch
+            {
+                returned = false;
+            }
+
+            return returned;
+        }
+
         #endregion
 
         #region Private Methods
@@ -133,6 +159,35 @@ namespace Aec.Cqrs
         private string GetName(TKey key)
         {
             return Path.Combine(m_folder, m_strategy.GetEntityLocation(typeof(TItem), key));
+        }
+
+        private IEnumerable<TItem> ReadHistory()
+        {
+            var result = new List<TItem>();
+            var files = new DirectoryInfo(m_folder).EnumerateFiles();
+
+            foreach (var file in files.OrderBy(f => f.Name))
+            {
+                if (file.Length == 0)
+                    file.Delete();
+
+                using (var reader = file.OpenRead())
+                using (var binary = new BinaryReader(reader, Encoding.UTF8))
+                {
+                    var length = file.Length;
+                    var totalBytes = binary.ReadBytes((int)length);
+
+                    using (var memory = new MemoryStream(totalBytes))
+                    {
+                        memory.Position = 0;
+
+                        var formatter = new BinaryFormatter();
+                        result.Add((TItem)formatter.Deserialize(memory));
+                    }
+                }
+            }
+
+            return result;
         }
 
         #endregion

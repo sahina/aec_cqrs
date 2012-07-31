@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace Aec.Cqrs
 {
     /// <summary>
-    /// Record storage interface.
+    /// Record storage (message stream) interface.
     /// </summary>
     public interface IRecordStorage
     {

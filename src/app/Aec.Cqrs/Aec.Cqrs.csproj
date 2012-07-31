@@ -48,7 +48,9 @@
     <Compile Include="Applied.cs" />
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
+    <Compile Include="DefaultDocumentStrategy.cs" />
     <Compile Include="DocumentRecord.cs" />
+    <Compile Include="ExtendDocumentReader.cs" />
     <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />

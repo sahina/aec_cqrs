@@ -10,6 +10,9 @@ using System.Threading;
 
 namespace Aec.Cqrs
 {
+    /// <summary>
+    /// File based record (message stream) storage
+    /// </summary>
     public class FileRecordStorage : IRecordStorage
     {
         private readonly IIdentity m_id;
@@ -191,8 +194,6 @@ namespace Aec.Cqrs
             {
                 if (file.Length == 0)
                     file.Delete();
-
-                //m_cache.TryAdd(file.Name, new SavedRecord[] { });
 
                 using (var reader = file.OpenRead())
                 using (var binary = new BinaryReader(reader, Encoding.UTF8))
