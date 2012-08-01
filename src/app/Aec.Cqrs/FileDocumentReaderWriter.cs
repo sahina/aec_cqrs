@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 
 namespace Aec.Cqrs
 {
@@ -16,7 +14,7 @@ namespace Aec.Cqrs
 
         public FileDocumentReaderWriter(string folder, IDocumentStrategy strategy)
         {
-            m_folder = Path.Combine(folder, strategy.GetEntityBucket<TItem>()); ;
+            m_folder = Path.Combine(folder, strategy.GetEntityBucket<TItem>());
             m_strategy = strategy;
         }
 
@@ -171,19 +169,9 @@ namespace Aec.Cqrs
                 if (file.Length == 0)
                     file.Delete();
 
-                using (var reader = file.OpenRead())
-                using (var binary = new BinaryReader(reader, Encoding.UTF8))
+                using (var stream = File.Open(file.FullName, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    var length = file.Length;
-                    var totalBytes = binary.ReadBytes((int)length);
-
-                    using (var memory = new MemoryStream(totalBytes))
-                    {
-                        memory.Position = 0;
-
-                        var formatter = new BinaryFormatter();
-                        result.Add((TItem)formatter.Deserialize(memory));
-                    }
+                    result.Add(m_strategy.Deserialize<TItem>(stream));
                 }
             }
 

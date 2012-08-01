@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Aec.Cqrs.Tests.Unit.Fakes;
 using NUnit.Framework;
 using Should;
@@ -123,15 +124,19 @@ namespace Aec.Cqrs.Tests.Unit
         public void document_storage_should_get_all_type_items()
         {
             // arrange
-            var storage = new DocumentStorage(m_store);
-            storage.AddEntity(m_accountID, m_account);
             IEnumerable<AccountView> entities;
-
+            var storage = new DocumentStorage(m_store);
+            storage.AddEntity(new AccountID(Guid.NewGuid()), new AccountView());
+            storage.AddEntity(new AccountID(Guid.NewGuid()), new AccountView());
+            storage.AddEntity(new AccountID(Guid.NewGuid()), new AccountView());
+            storage.AddEntity(new AccountID(Guid.NewGuid()), new AccountView());
             // act
             storage.TryGetAllEntities(out entities);
+            var accountViews = entities as List<AccountView> ?? entities.ToList();
 
             // assert
-            entities.ShouldNotBeEmpty();
+            accountViews.ShouldNotBeEmpty();
+            accountViews.Count().ShouldEqual(4);
         }
     }
 }
