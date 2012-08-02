@@ -49,7 +49,7 @@ namespace Aec.Cqrs
             return Identifier.ToString();
         }
 
-        public string GetTag()
+        public virtual string GetTag()
         {
             return GetType().ToString().ToLowerInvariant();
         }
