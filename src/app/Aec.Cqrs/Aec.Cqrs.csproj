@@ -76,7 +76,8 @@
     <Compile Include="CommandHandled.cs" />
     <Compile Include="DefaultDocumentStrategy.cs" />
     <Compile Include="DocumentRecord.cs" />
-    <Compile Include="ExtendDocumentReader.cs" />
+    <Compile Include="DocumentReaderExtension.cs" />
+    <Compile Include="EnvelopeStreamerExtension.cs" />
     <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="IDocumentWriter.cs" />
     <Compile Include="ICommandBus.cs" />
     <Compile Include="ICommandHandler.cs" />
+    <Compile Include="IEnveleopeStreamer.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IEventHandler.cs" />
     <Compile Include="IRecordStorageConfig.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="IRecordStorageFactory.cs" />
     <Compile Include="MemoryRecordStorage.cs" />
     <Compile Include="MemoryRecordStorageFactory.cs" />
+    <Compile Include="Optional.cs" />
     <Compile Include="SavedRecord.cs" />
     <Compile Include="EnvelopeDispatched.cs" />
     <Compile Include="EnvelopeQuarantined.cs" />

@@ -2,8 +2,14 @@
 
 namespace Aec.Cqrs
 {
-    public static class ExtendDocumentReader
+    public static class DocumentReaderExtension
     {
+        public static Optional<TEntity> Get<TKey, TEntity>(this IDocumentReader<TKey, TEntity> self, TKey key) where TKey : IIdentity
+        {
+            TEntity entity;
+            return self.TryGet(key, out entity) ? entity : Optional<TEntity>.Empty;
+        }
+
         public static TEntity Load<TKey, TEntity>(this IDocumentReader<TKey, TEntity> self, TKey key) where TKey : IIdentity
         {
             TEntity entity;
