@@ -10,6 +10,14 @@ namespace Aec.Cqrs
         public readonly int Index;
         readonly ImmutableAttribute[] m_attributes;
 
+        public ImmutableMessage(Type mappedType, object content, ImmutableAttribute[] attributes, int index)
+        {
+            MappedType = mappedType;
+            Index = index;
+            Content = content;
+            m_attributes = attributes;
+        }
+
         public ICollection<ImmutableAttribute> GetAllAttributes()
         {
             return m_attributes;
@@ -37,15 +45,6 @@ namespace Aec.Cqrs
                     return attribute.Value;
             }
             return defaultValue;
-        }
-
-
-        public ImmutableMessage(Type mappedType, object content, ImmutableAttribute[] attributes, int index)
-        {
-            MappedType = mappedType;
-            Index = index;
-            Content = content;
-            m_attributes = attributes;
         }
 
         public override string ToString()

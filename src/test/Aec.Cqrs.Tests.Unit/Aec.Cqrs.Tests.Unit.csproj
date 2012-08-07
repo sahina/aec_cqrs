@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,7 @@
     <Compile Include="AggregateFactoryTests.cs" />
     <Compile Include="ConsoleObserver.cs" />
     <Compile Include="DocumentTests.cs" />
+    <Compile Include="EnvelopeSerializerTests.cs" />
     <Compile Include="Fakes\Account.cs" />
     <Compile Include="Fakes\AccountCreated.cs" />
     <Compile Include="Fakes\AccountCreatedHandler.cs" />
@@ -60,10 +62,13 @@
     <Compile Include="Fakes\AccountView.cs" />
     <Compile Include="Fakes\CreateAccount.cs" />
     <Compile Include="Fakes\CreateAccountHandler.cs" />
+    <Compile Include="Fakes\DisableAccount.cs" />
+    <Compile Include="Fakes\EnableAccount.cs" />
     <Compile Include="Fakes\ExpectedTestException.cs" />
     <Compile Include="CommandHandlerTests.cs" />
     <Compile Include="CommandSenderTests.cs" />
-    <Compile Include="DefaultQueueWriter.cs" />
+    <Compile Include="QueueWriterToBus.cs" />
+    <Compile Include="QueueWriterToFile.cs" />
     <Compile Include="EventHandlerTests.cs" />
     <Compile Include="Fakes\IAccount.cs" />
     <Compile Include="Fakes\IAccountState.cs" />

@@ -41,12 +41,12 @@ namespace Aec.Cqrs.Tests.Unit
             //
             // Queue Writer
 
-            var queueWriter = new DefaultQueueWriter(bus);
+            var serializer = new EnvelopeSerializer();
+            var queueWriter = new QueueWriterToBus(bus, serializer);
 
 
             //
             // Misc
-
             Sender = new MessageSender(new IQueueWriter[] { queueWriter });
             Identifier = new AccountID(Guid.NewGuid());
         }

@@ -12,7 +12,7 @@ namespace Aec.Cqrs
         readonly Func<string> m_idGenerator;
 
         #region Ctors
-        
+
         public MessageSender(IQueueWriter[] queues, Func<string> idGenerator = null)
         {
             m_queues = queues;
@@ -62,7 +62,7 @@ namespace Aec.Cqrs
                 SystemObserver.Notify(
                     new EnvelopeSent(queue.Name, envelope.EnvelopeId, false,
                                      envelope.Items.Select(x => x.MappedType.Name).ToArray(), envelope.GetAllAttributes()));
-
+                
                 queue.PutMessage(envelope);
             }
             else

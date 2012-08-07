@@ -77,7 +77,7 @@
     <Compile Include="DefaultDocumentStrategy.cs" />
     <Compile Include="DocumentRecord.cs" />
     <Compile Include="DocumentReaderExtension.cs" />
-    <Compile Include="EnvelopeStreamerExtension.cs" />
+    <Compile Include="EnvelopeSerializer.cs" />
     <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="IDocumentWriter.cs" />
     <Compile Include="ICommandBus.cs" />
     <Compile Include="ICommandHandler.cs" />
-    <Compile Include="IEnveleopeStreamer.cs" />
+    <Compile Include="IEnvelopeSerializer.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IEventHandler.cs" />
     <Compile Include="IRecordStorageConfig.cs" />
