@@ -44,6 +44,7 @@ del exclude.txt
 echo.
 echo === COPYING DLLs ===
 copy src\app\Aec.Cqrs\bin\%TARGET_CONFIG%\Aec.Cqrs.* output\bin
+copy src\app\Aec.Cqrs.Client\bin\%TARGET_CONFIG%\Aec.Cqrs.Client* output\bin
 copy src\app\Aec.Cqrs.EventStorage\bin\%TARGET_CONFIG%\Aec.Cqrs.EventStorage* output\bin
 
 echo Rereferencing Merged Assembly
@@ -62,6 +63,15 @@ move %NUGET_REPO_PATH%\Aec.Cqrs.1.*.nupkg %NUGET_REPO_PATH%\Aec.Cqrs.nupkg
 copy *.nupkg output\nuget
 del *.nupkg
 del output\bin\Aec.Cqrs.nuspec
+
+echo Creating Aec.Cqrs.Client package
+copy src\packaging\Nuget\Aec.Cqrs.Client.nuspec output\bin
+thirdparty\tools\Nuget\nuget.exe pack output\bin\Aec.Cqrs.Client.nuspec
+copy *.nupkg %NUGET_REPO_PATH%
+move %NUGET_REPO_PATH%\Aec.Cqrs.Client.1.*.nupkg %NUGET_REPO_PATH%\Aec.Cqrs.Client.nupkg
+copy *.nupkg output\nuget
+del *.nupkg
+del output\bin\Aec.Cqrs.Client.nuspec
 
 echo Creating Aec.Cqrs.EventStorage package
 copy src\packaging\Nuget\Aec.Cqrs.EventStorage.nuspec output\bin

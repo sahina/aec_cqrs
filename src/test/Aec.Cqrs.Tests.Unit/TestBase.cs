@@ -41,8 +41,7 @@ namespace Aec.Cqrs.Tests.Unit
             //
             // Queue Writer
 
-            var serializer = new EnvelopeSerializer();
-            var queueWriter = new QueueWriterToBus(bus, serializer);
+            var queueWriter = new QueueWriterToBus(bus);
 
 
             //

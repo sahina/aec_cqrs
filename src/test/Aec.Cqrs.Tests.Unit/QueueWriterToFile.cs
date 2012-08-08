@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 
 namespace Aec.Cqrs.Tests.Unit
@@ -7,7 +8,6 @@ namespace Aec.Cqrs.Tests.Unit
     public class QueueWriterToFile : IQueueWriter
     {
         private readonly DirectoryInfo m_folder;
-        private readonly IEnvelopeSerializer m_serializer;
         private static long s_universalCounter;
         private readonly string m_suffix;
 
@@ -16,30 +16,21 @@ namespace Aec.Cqrs.Tests.Unit
             m_folder = folder;
             m_suffix = Guid.NewGuid().ToString().Substring(0, 4);
             Name = name;
-            m_serializer = new EnvelopeSerializer();
-        }
-        public QueueWriterToFile(DirectoryInfo folder, string name, IEnvelopeSerializer serializer)
-        {
-            m_folder = folder;
-            m_serializer = serializer;
-            m_suffix = Guid.NewGuid().ToString().Substring(0, 4);
-            Name = name;
         }
 
         #region Implementation of IQueueWriter
 
         public string Name { get; private set; }
 
-        public void PutMessage(byte[] envelope)
-        {
-            File.WriteAllBytes(GenerateFileName(), envelope);
-        }
-
         public void PutMessage(ImmutableEnvelope envelope)
         {
-            var bytes = m_serializer.SerializeToBytes(envelope);
+            using (var stream = new MemoryStream())
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(stream, envelope);
 
-            File.WriteAllBytes(GenerateFileName(), bytes);
+                File.WriteAllBytes(GenerateFileName(), stream.ToArray());
+            }
         }
 
         #endregion

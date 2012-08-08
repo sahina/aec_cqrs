@@ -47,37 +47,11 @@
   <ItemGroup>
     <Compile Include="AggregateRootFactory.cs" />
     <Compile Include="Applied.cs" />
-    <Compile Include="Client\AuthInfo.cs" />
-    <Compile Include="Client\AuthPrincipal.cs" />
-    <Compile Include="Client\Events\PermissionAddedToSecurityItem.cs" />
-    <Compile Include="Client\Events\RegistrationCreated.cs" />
-    <Compile Include="Client\Events\RegistrationEvent.cs" />
-    <Compile Include="Client\Events\RegistrationFailed.cs" />
-    <Compile Include="Client\Events\RegistrationSucceeded.cs" />
-    <Compile Include="Client\Events\SecurityEvent.cs" />
-    <Compile Include="Client\Events\SecurityIdentityAdded.cs" />
-    <Compile Include="Client\Events\SecurityItemDisplayNameUpdated.cs" />
-    <Compile Include="Client\Events\SecurityItemRemoved.cs" />
-    <Compile Include="Client\Events\SecurityPasswordAdded.cs" />
-    <Compile Include="Client\Events\UserCreated.cs" />
-    <Compile Include="Client\Events\UserLocked.cs" />
-    <Compile Include="Client\Events\UserLoginSuccessReported.cs" />
-    <Compile Include="Client\Events\UserUnlocked.cs" />
-    <Compile Include="Client\Projections\LoginView.cs" />
-    <Compile Include="Client\Projections\LoginViewProjection.cs" />
-    <Compile Include="Client\Projections\RegistrationsProjection.cs" />
-    <Compile Include="Client\Projections\RegistrationView.cs" />
-    <Compile Include="Client\RegistrationID.cs" />
-    <Compile Include="Client\SecurityID.cs" />
-    <Compile Include="Client\SecurityInfo.cs" />
-    <Compile Include="Client\SessionIdentity.cs" />
-    <Compile Include="Client\UserID.cs" />
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
     <Compile Include="DefaultDocumentStrategy.cs" />
     <Compile Include="DocumentRecord.cs" />
     <Compile Include="DocumentReaderExtension.cs" />
-    <Compile Include="EnvelopeSerializer.cs" />
     <Compile Include="FileDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
@@ -96,7 +70,6 @@
     <Compile Include="IDocumentWriter.cs" />
     <Compile Include="ICommandBus.cs" />
     <Compile Include="ICommandHandler.cs" />
-    <Compile Include="IEnvelopeSerializer.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IEventHandler.cs" />
     <Compile Include="IRecordStorageConfig.cs" />
@@ -141,9 +114,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client\Commands\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{915B36C8-FEFB-466D-8E11-71F5092E2343}</ProjectGuid>
+    <ProjectGuid>{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Aec.Cqrs.Tests.Unit</RootNamespace>
-    <AssemblyName>Aec.Cqrs.Tests.Unit</AssemblyName>
+    <RootNamespace>Aec.Cqrs.Client</RootNamespace>
+    <AssemblyName>Aec.Cqrs.Client</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,12 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\thirdparty\libs\nugetpackages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Should">
-      <HintPath>..\..\..\thirdparty\libs\nugetpackages\Should.1.1.12.0\lib\Should.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -47,40 +41,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateFactoryTests.cs" />
-    <Compile Include="ConsoleObserver.cs" />
-    <Compile Include="DocumentTests.cs" />
-    <Compile Include="Fakes\Account.cs" />
-    <Compile Include="Fakes\AccountCreated.cs" />
-    <Compile Include="Fakes\AccountCreatedHandler.cs" />
-    <Compile Include="Fakes\AccountEnabled.cs" />
-    <Compile Include="Fakes\AccountFactory.cs" />
-    <Compile Include="Fakes\AccountID.cs" />
-    <Compile Include="Fakes\AccountState.cs" />
-    <Compile Include="Fakes\AccountSuspended.cs" />
-    <Compile Include="Fakes\AccountView.cs" />
-    <Compile Include="Fakes\CreateAccount.cs" />
-    <Compile Include="Fakes\CreateAccountHandler.cs" />
-    <Compile Include="Fakes\DisableAccount.cs" />
-    <Compile Include="Fakes\EnableAccount.cs" />
-    <Compile Include="Fakes\ExpectedTestException.cs" />
-    <Compile Include="CommandHandlerTests.cs" />
-    <Compile Include="CommandSenderTests.cs" />
-    <Compile Include="IQueueWriterFactory.cs" />
-    <Compile Include="QueueWriterToBus.cs" />
-    <Compile Include="QueueWriterToFile.cs" />
-    <Compile Include="EventHandlerTests.cs" />
-    <Compile Include="Fakes\IAccount.cs" />
-    <Compile Include="Fakes\IAccountState.cs" />
-    <Compile Include="FileRecordStorageTests.cs" />
-    <Compile Include="TestBase.cs" />
+    <Compile Include="AuthInfo.cs" />
+    <Compile Include="AuthPrincipal.cs" />
+    <Compile Include="Events\PermissionAddedToSecurityItem.cs" />
+    <Compile Include="Events\RegistrationCreated.cs" />
+    <Compile Include="Events\RegistrationEvent.cs" />
+    <Compile Include="Events\RegistrationFailed.cs" />
+    <Compile Include="Events\RegistrationSucceeded.cs" />
+    <Compile Include="Events\SecurityEvent.cs" />
+    <Compile Include="Events\SecurityIdentityAdded.cs" />
+    <Compile Include="Events\SecurityItemDisplayNameUpdated.cs" />
+    <Compile Include="Events\SecurityItemRemoved.cs" />
+    <Compile Include="Events\SecurityPasswordAdded.cs" />
+    <Compile Include="Events\UserCreated.cs" />
+    <Compile Include="Events\UserLocked.cs" />
+    <Compile Include="Events\UserLoginSuccessReported.cs" />
+    <Compile Include="Events\UserUnlocked.cs" />
+    <Compile Include="Projections\LoginView.cs" />
+    <Compile Include="Projections\LoginViewProjection.cs" />
+    <Compile Include="Projections\RegistrationsProjection.cs" />
+    <Compile Include="Projections\RegistrationView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationID.cs" />
+    <Compile Include="SecurityID.cs" />
+    <Compile Include="SecurityInfo.cs" />
+    <Compile Include="SessionIdentity.cs" />
+    <Compile Include="UserID.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Folder Include="Commands\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\app\Aec.Cqrs\Aec.Cqrs.csproj">
+    <ProjectReference Include="..\Aec.Cqrs\Aec.Cqrs.csproj">
       <Project>{97EE98C1-E93A-408F-BB65-010DA110ECDB}</Project>
       <Name>Aec.Cqrs</Name>
     </ProjectReference>

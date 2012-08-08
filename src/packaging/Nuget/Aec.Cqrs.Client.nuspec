@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Aec.Cqrs.Client</id>
+        <version>1.0.1</version>
+        <authors>Altug Sahin</authors>
+        <owners>Altug Sahin</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Aec.Cqrs.Client Library</description>
+        <tags>Aec.Cqrs.Client Library</tags>
+        <dependencies>
+            <dependency id="Aec.Cqrs"
+                        version="" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Aec.Cqrs.Client.dll"
+              target="lib\net40" />
+        <file src="Aec.Cqrs.Client.pdb"
+              target="lib\net40" />
+    </files>
+</package>
