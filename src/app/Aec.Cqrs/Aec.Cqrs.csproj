@@ -91,7 +91,6 @@
     <Compile Include="IRecordStorageFactory.cs" />
     <Compile Include="MemoryRecordStorage.cs" />
     <Compile Include="MemoryRecordStorageFactory.cs" />
-    <Compile Include="Optional.cs" />
     <Compile Include="SavedRecord.cs" />
     <Compile Include="EnvelopeDispatched.cs" />
     <Compile Include="EnvelopeQuarantined.cs" />

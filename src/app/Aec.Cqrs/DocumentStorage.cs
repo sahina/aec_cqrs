@@ -20,6 +20,11 @@ namespace Aec.Cqrs
             }
         }
 
+        public Maybe<TEntity> GetEntity<TEntity>(IIdentity key)
+        {
+            return m_store.GetReader<IIdentity, TEntity>().Get(key);
+        } 
+
         public bool TryDeleteEntity<TEntity>(IIdentity key)
         {
             return m_store.GetWriter<IIdentity, TEntity>().TryDelete(key);
