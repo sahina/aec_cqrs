@@ -1,4 +1,4 @@
-namespace Aec.Cqrs.Tests.Unit
+namespace Aec.Cqrs
 {
     public class QueueWriterToBus : IQueueWriter
     {

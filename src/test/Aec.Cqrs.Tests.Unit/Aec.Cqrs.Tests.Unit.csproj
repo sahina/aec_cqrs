@@ -66,9 +66,6 @@
     <Compile Include="Fakes\ExpectedTestException.cs" />
     <Compile Include="CommandHandlerTests.cs" />
     <Compile Include="CommandSenderTests.cs" />
-    <Compile Include="IQueueWriterFactory.cs" />
-    <Compile Include="QueueWriterToBus.cs" />
-    <Compile Include="QueueWriterToFile.cs" />
     <Compile Include="EventHandlerTests.cs" />
     <Compile Include="Fakes\IAccount.cs" />
     <Compile Include="Fakes\IAccountState.cs" />

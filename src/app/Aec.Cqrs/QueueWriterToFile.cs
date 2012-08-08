@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 
-namespace Aec.Cqrs.Tests.Unit
+namespace Aec.Cqrs
 {
     public class QueueWriterToFile : IQueueWriter
     {

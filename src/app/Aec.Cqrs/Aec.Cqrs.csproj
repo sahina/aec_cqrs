@@ -72,6 +72,7 @@
     <Compile Include="ICommandHandler.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IEventHandler.cs" />
+    <Compile Include="IQueueWriterFactory.cs" />
     <Compile Include="IRecordStorageConfig.cs" />
     <Compile Include="IRegisterMessageRoutes.cs" />
     <Compile Include="IRouteMessages.cs" />
@@ -91,6 +92,8 @@
     <Compile Include="IRecordStorageFactory.cs" />
     <Compile Include="MemoryRecordStorage.cs" />
     <Compile Include="MemoryRecordStorageFactory.cs" />
+    <Compile Include="QueueWriterToBus.cs" />
+    <Compile Include="QueueWriterToFile.cs" />
     <Compile Include="SavedRecord.cs" />
     <Compile Include="EnvelopeDispatched.cs" />
     <Compile Include="EnvelopeQuarantined.cs" />
