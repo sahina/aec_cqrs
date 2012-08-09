@@ -2,11 +2,11 @@
 
 namespace Aec.Cqrs
 {
-    public class MemoryBus : IEventBus, ICommandBus
+    public class MemoryBusWithRouter : IEventBus, ICommandBus
     {
         private readonly IRouteMessages m_router;
 
-        public MemoryBus(IRouteMessages router)
+        public MemoryBusWithRouter(IRouteMessages router)
         {
             m_router = router;
         }

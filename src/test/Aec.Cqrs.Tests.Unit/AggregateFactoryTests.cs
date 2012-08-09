@@ -19,7 +19,7 @@ namespace Aec.Cqrs.Tests.Unit
             var id = new AccountID(Guid.NewGuid());
             var storageFactory = new MemoryRecordStorageFactory();
 
-            var bus = new MemoryBus(router);
+            var bus = new MemoryBusWithRouter(router);
             var factory = new AccountFactory(bus, storageFactory);
 
             // act

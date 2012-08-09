@@ -77,8 +77,9 @@
     <Compile Include="IRegisterMessageRoutes.cs" />
     <Compile Include="IRouteMessages.cs" />
     <Compile Include="Maybe.cs" />
+    <Compile Include="MemoryBusWithRouterAndHandler.cs" />
     <Compile Include="MemoryDocumentReaderWriter.cs" />
-    <Compile Include="MemoryBus.cs" />
+    <Compile Include="MemoryBusWithRouter.cs" />
     <Compile Include="MemoryMessageRouter.cs" />
     <Compile Include="CommandHandler.cs" />
     <Compile Include="MessageHandler.cs" />

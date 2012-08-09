@@ -44,7 +44,7 @@ namespace Aec.Cqrs.Tests.Unit
             //
             // message bus
 
-            var bus = new MemoryBus(m_router);
+            var bus = new MemoryBusWithRouter(m_router);
 
 
             //
