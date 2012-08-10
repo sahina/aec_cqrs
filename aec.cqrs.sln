@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.EventStorage", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Client", "src\app\Aec.Cqrs.Client\Aec.Cqrs.Client.csproj", "{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.WebUI", "src\app\Aec.Cqrs.WebUI\Aec.Cqrs.WebUI.csproj", "{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

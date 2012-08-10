@@ -1,0 +1,36 @@
+﻿@model Aec.Cqrs.WebUI.Models.CreateAccountModel
+
+@{
+    ViewBag.Title = "Create Account";
+}
+
+@using (Html.BeginForm("Create", "Accounts", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.AccountID)
+    
+    <fieldset>
+        <legend>@ViewBag.Title</legend>
+
+        <div class="control-group">
+            <label class="control-label">Username</label>
+            <div class="controls">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <label class="control-label">Password</label>
+            <div class="controls">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Create Account</button>
+        </div>
+
+    </fieldset>
+}
