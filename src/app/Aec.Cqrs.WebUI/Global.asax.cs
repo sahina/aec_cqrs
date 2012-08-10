@@ -1,8 +1,13 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
+using Aec.Cqrs.Client;
+using Aec.Cqrs.Client.Events;
+using Aec.Cqrs.Client.Projections;
+using Aec.Cqrs.WebUI.Infrastructure.Ninject;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
+using Ninject.Web.Mvc;
 
 namespace Aec.Cqrs.WebUI
 {
@@ -37,6 +42,7 @@ namespace Aec.Cqrs.WebUI
         {
             var modules = new INinjectModule[]
             {
+                new NinjectMessagingModule()
             };
 
             NinjectKernel = new StandardKernel(modules);
@@ -50,6 +56,25 @@ namespace Aec.Cqrs.WebUI
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            RegisterMessageRoutes();
+        }
+
+        private static void RegisterMessageRoutes()
+        {
+            var documentStore = NinjectKernel.Get<DocumentStorage>();
+            var handler = NinjectKernel.Get<MessageHandler>();
+
+            handler.WireToLambda<UserCreated>(created =>
+            {
+                var view = new RegistrationView
+                {
+                    SecurityID = created.Identity,
+                    
+                };
+
+                //documentStore.AddEntity(created.Identity, created.)
+            });
         }
     }
 }

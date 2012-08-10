@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		src\packaging\Nuget\Aec.Cqrs.Client.nuspec = src\packaging\Nuget\Aec.Cqrs.Client.nuspec
 		src\packaging\Nuget\Aec.Cqrs.EventStorage.nuspec = src\packaging\Nuget\Aec.Cqrs.EventStorage.nuspec
 		src\packaging\Nuget\Aec.Cqrs.nuspec = src\packaging\Nuget\Aec.Cqrs.nuspec
+		src\packaging\Nuget\Aec.Infrastructure.nuspec = src\packaging\Nuget\Aec.Infrastructure.nuspec
 		build.cmd = build.cmd
 	EndProjectSection
 EndProject
@@ -18,6 +19,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Client", "src\app\Aec.Cqrs.Client\Aec.Cqrs.Client.csproj", "{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.WebUI", "src\app\Aec.Cqrs.WebUI\Aec.Cqrs.WebUI.csproj", "{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CQRS", "CQRS", "{22B586E9-0818-4521-9196-84292A64A57B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{19D8C839-4589-41F3-9A5A-E3DC3F3CF400}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Infrastructure", "src\app\Aec.Infrastructure\Aec.Infrastructure.csproj", "{5B513A74-60F9-4664-93CF-E04A81A1E8E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,8 +52,20 @@ Global
 		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B513A74-60F9-4664-93CF-E04A81A1E8E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B513A74-60F9-4664-93CF-E04A81A1E8E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B513A74-60F9-4664-93CF-E04A81A1E8E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B513A74-60F9-4664-93CF-E04A81A1E8E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97EE98C1-E93A-408F-BB65-010DA110ECDB} = {22B586E9-0818-4521-9196-84292A64A57B}
+		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8} = {22B586E9-0818-4521-9196-84292A64A57B}
+		{4672B68B-73EA-4CF4-B1AE-A848EBDB7172} = {22B586E9-0818-4521-9196-84292A64A57B}
+		{806EE2C1-0200-4B99-8444-279F6664D2CB} = {22B586E9-0818-4521-9196-84292A64A57B}
+		{915B36C8-FEFB-466D-8E11-71F5092E2343} = {22B586E9-0818-4521-9196-84292A64A57B}
+		{5B513A74-60F9-4664-93CF-E04A81A1E8E3} = {19D8C839-4589-41F3-9A5A-E3DC3F3CF400}
 	EndGlobalSection
 EndGlobal

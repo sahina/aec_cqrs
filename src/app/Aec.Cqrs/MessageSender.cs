@@ -13,10 +13,14 @@ namespace Aec.Cqrs
 
         #region Ctors
 
-        public MessageSender(IQueueWriter[] queues, Func<string> idGenerator = null)
+        public MessageSender(IQueueWriter[] queues)
+            : this(queues, () => Guid.NewGuid().ToString())
+        {
+        }
+        public MessageSender(IQueueWriter[] queues, Func<string> idGenerator)
         {
             m_queues = queues;
-            m_idGenerator = idGenerator ?? (() => Guid.NewGuid().ToString());
+            m_idGenerator = idGenerator;
 
             if (queues.Length == 0)
                 throw new InvalidOperationException("There should be at least one queue");

@@ -86,7 +86,9 @@
     </Compile>
     <Compile Include="Infrastructure\FormsAuth.cs" />
     <Compile Include="Infrastructure\GlobalState.cs" />
+    <Compile Include="Infrastructure\Ninject\NinjectMessagingModule.cs" />
     <Compile Include="Infrastructure\WebEndpoint.cs" />
+    <Compile Include="MessageHandlers\UserCreatedHandler.cs" />
     <Compile Include="Models\CreateAccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -207,7 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infrastructure\Ninject\" />
+    <Folder Include="Messages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Accounts\Index.cshtml" />

@@ -1,22 +1,18 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>Aec.Cqrs</id>
-        <version>1.0.43</version>
+        <id>Aec.Infrastructure</id>
+        <version>1.0.1</version>
         <authors>Altug Sahin</authors>
         <owners>Altug Sahin</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Aec.Cqrs Library</description>
-        <tags>Aec.Cqrs Library</tags>
-        <dependencies>
-            <dependency id="ServiceStack.Text"
-                        version="" />
-        </dependencies>
+        <description>Aec.Infrastructure Library</description>
+        <tags>Aec.Infrastructure Library</tags>
     </metadata>
     <files>
-        <file src="Aec.Cqrs.dll"
+        <file src="Aec.Infrastructure.dll"
               target="lib\net40" />
-        <file src="Aec.Cqrs.pdb"
+        <file src="Aec.Infrastructure.pdb"
               target="lib\net40" />
     </files>
 </package>

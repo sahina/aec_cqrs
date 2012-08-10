@@ -3,7 +3,7 @@ set FRAMEWORK_PATH=C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319
 set PATH=%PATH%;%FRAMEWORK_PATH%;
 
 :target_config
-set TARGET_CONFIG=Release
+set TARGET_CONFIG=Debug
 IF x==%1x goto framework_version
 set TARGET_CONFIG=%1
 
@@ -43,6 +43,7 @@ del exclude.txt
 
 echo.
 echo === COPYING DLLs ===
+copy src\app\Aec.Infrastructure\bin\%TARGET_CONFIG%\Aec.Infrastructure.* output\bin
 copy src\app\Aec.Cqrs\bin\%TARGET_CONFIG%\Aec.Cqrs.* output\bin
 copy src\app\Aec.Cqrs.Client\bin\%TARGET_CONFIG%\Aec.Cqrs.Client* output\bin
 copy src\app\Aec.Cqrs.EventStorage\bin\%TARGET_CONFIG%\Aec.Cqrs.EventStorage* output\bin
@@ -54,6 +55,15 @@ msbuild /nologo /verbosity:quiet aec.cqrs.sln /p:Configuration=%TARGET_CONFIG% /
 echo.
 echo === CREATING NUGET PACKAGE ===
 set NUGET_REPO_PATH=C:\Docs\AecNuGetRepository
+
+echo Creating Aec.Infrastructure package
+copy src\packaging\Nuget\Aec.Infrastructure.nuspec output\bin
+thirdparty\tools\Nuget\nuget.exe pack output\bin\Aec.Infrastructure.nuspec
+copy *.nupkg %NUGET_REPO_PATH%
+move %NUGET_REPO_PATH%\Aec.Infrastructure.1.*.nupkg %NUGET_REPO_PATH%\Aec.Infrastructure.nupkg
+copy *.nupkg output\nuget
+del *.nupkg
+del output\bin\Aec.Infrastructure.nuspec
 
 echo Creating Aec.Cqrs package
 copy src\packaging\Nuget\Aec.Cqrs.nuspec output\bin
