@@ -1,0 +1,7 @@
+{
+	"Status": "Processing registration",
+	"HasProblems": false,
+	"Completed": false,
+	"Permissions": [],
+	"Registration": {}
+}

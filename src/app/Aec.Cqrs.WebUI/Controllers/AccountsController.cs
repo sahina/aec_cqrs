@@ -30,14 +30,21 @@ namespace Aec.Cqrs.WebUI.Controllers
             {
                 var securityid = new SecurityID(Guid.NewGuid().ToString());
                 var security = new SecurityInfo(securityid, model.Username, model.Password, model.Username, null);
-                var userid = new UserID(security.SecurityID.GetIdenfitier());
+                var regid = new RegistrationID(Guid.NewGuid());
 
-                MessageSender.SendOne(new UserCreated(securityid, userid, new TimeSpan(0, 0, 20)));
+                var cmd = new RegistrationCreated(regid, DateTime.UtcNow, security);
+
+                Bus.SendOne(cmd);
 
                 return RedirectToAction("Index");
             }
 
             return View(model);
+        }
+
+        public ActionResult ResetAll()
+        {
+            return View();
         }
     }
 }

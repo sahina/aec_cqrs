@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Web;
 using Ninject;
 using Ninject.Modules;
 
@@ -14,7 +13,9 @@ namespace Aec.Cqrs.WebUI.Infrastructure.Ninject
         /// </summary>
         public override void Load()
         {
-            var folderPath = Environment.CurrentDirectory;
+            var folderPathDocs = HttpContext.Current.Server.MapPath("~/App_Data/Documents");
+            var folderPathRecords = HttpContext.Current.Server.MapPath("~/App_Data/Records");
+
             //
             // Projections
 
@@ -22,7 +23,7 @@ namespace Aec.Cqrs.WebUI.Infrastructure.Ninject
 
             Bind<IDocumentStore>()
                 .To<FileDocumentStore>()
-                .WithConstructorArgument("folderPath", "documents")
+                .WithConstructorArgument("folderPath", folderPathDocs)
                 .WithConstructorArgument("strategy", Kernel.Get<IDocumentStrategy>());
 
             Bind<DocumentStorage>().ToSelf();

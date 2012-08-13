@@ -1,8 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System.Web;
+using System.Web.Mvc;
 using System.Web.Routing;
+using Aec.Cqrs.Client;
 using Aec.Cqrs.Client.Events;
 using Aec.Cqrs.Client.Projections;
 using Aec.Cqrs.WebUI.Infrastructure.Ninject;
+using Aec.Cqrs.WebUI.MessageHandlers;
 using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Common;
@@ -60,19 +63,13 @@ namespace Aec.Cqrs.WebUI
 
         private static void RegisterMessageRoutes()
         {
-            var documentStore = NinjectKernel.Get<DocumentStorage>();
+            var folderPathDocs = HttpContext.Current.Server.MapPath("~/App_Data/Documents");
+            var strategy = NinjectKernel.Get<IDocumentStrategy>();
+            
+            var writer = new FileDocumentReaderWriter<RegistrationID, RegistrationView>(folderPathDocs, strategy);
+            
             var handler = NinjectKernel.Get<MessageHandler>();
-
-            handler.WireToLambda<UserCreated>(created =>
-            {
-                var view = new RegistrationView
-                {
-                    SecurityID = created.Identity,
-                    
-                };
-
-                //documentStore.AddEntity(created.Identity, created.)
-            });
+            handler.WireToLambda<RegistrationCreated>(new RegistrationCreatedHandler(writer).Handle);
         }
     }
 }

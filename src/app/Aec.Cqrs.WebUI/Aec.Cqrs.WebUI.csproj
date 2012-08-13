@@ -88,7 +88,7 @@
     <Compile Include="Infrastructure\GlobalState.cs" />
     <Compile Include="Infrastructure\Ninject\NinjectMessagingModule.cs" />
     <Compile Include="Infrastructure\WebEndpoint.cs" />
-    <Compile Include="MessageHandlers\UserCreatedHandler.cs" />
+    <Compile Include="MessageHandlers\RegistrationCreatedHandler.cs" />
     <Compile Include="Models\CreateAccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -210,6 +210,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Messages\" />
+    <Folder Include="Projections\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Accounts\Index.cshtml" />

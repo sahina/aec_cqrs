@@ -6,6 +6,9 @@ namespace Aec.Cqrs.WebUI.Controllers
     public class ApplicationController : Controller
     {
         [Inject]
-        public MessageSender MessageSender { get; set; }
+        public MessageSender Bus { get; set; }
+
+        [Inject]
+        public DocumentStorage DocumentStorage { get; set; }
     }
 }
