@@ -14,15 +14,13 @@ namespace Aec.Cqrs.Tests.Unit
         private IDocumentStrategy m_strategy;
         private AccountView m_account;
         private AccountID m_accountID;
-        private FileDocumentReaderWriter<AccountID, AccountView> m_docReaderWriter;
         private FileDocumentStore m_store;
         private const string FOLDER_PATH = "test-docs";
 
         [SetUp]
         public void Setup()
         {
-            m_strategy = new FileDocumentStrategy();
-            m_docReaderWriter = new FileDocumentReaderWriter<AccountID, AccountView>(FOLDER_PATH, m_strategy);
+            m_strategy = new FileJsonDocumentStrategy();
             m_store = new FileDocumentStore(FOLDER_PATH, m_strategy);
             m_account = new AccountView
             {

@@ -4,7 +4,7 @@ using ServiceStack.Text;
 
 namespace Aec.Cqrs
 {
-    public class DefaultDocumentStrategy : IDocumentStrategy
+    public class DefaultJsonDocumentStrategy : IDocumentStrategy
     {
         public string GetEntityBucket<T>()
         {

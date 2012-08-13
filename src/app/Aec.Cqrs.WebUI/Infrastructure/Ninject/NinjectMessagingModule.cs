@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using System;
+using System.Reflection;
+using Ninject;
 using Ninject.Modules;
 
 namespace Aec.Cqrs.WebUI.Infrastructure.Ninject
@@ -12,10 +14,11 @@ namespace Aec.Cqrs.WebUI.Infrastructure.Ninject
         /// </summary>
         public override void Load()
         {
+            var folderPath = Environment.CurrentDirectory;
             //
             // Projections
 
-            Bind<IDocumentStrategy>().To<FileDocumentStrategy>();
+            Bind<IDocumentStrategy>().To<FileJsonDocumentStrategy>();
 
             Bind<IDocumentStore>()
                 .To<FileDocumentStore>()

@@ -48,12 +48,13 @@
   <ItemGroup>
     <Compile Include="AggregateRootFactory.cs" />
     <Compile Include="Applied.cs" />
+    <Compile Include="BinaryDocumentStrategy.cs" />
     <Compile Include="CommandContext.cs" />
     <Compile Include="CommandHandled.cs" />
-    <Compile Include="DefaultDocumentStrategy.cs" />
+    <Compile Include="DefaultJsonDocumentStrategy.cs" />
     <Compile Include="DocumentRecord.cs" />
     <Compile Include="DocumentReaderExtension.cs" />
-    <Compile Include="FileDocumentStrategy.cs" />
+    <Compile Include="FileJsonDocumentStrategy.cs" />
     <Compile Include="EventHandled.cs" />
     <Compile Include="DocumentWriterExtension.cs" />
     <Compile Include="FileDocumentReaderWriter.cs" />
