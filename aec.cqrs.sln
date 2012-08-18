@@ -1,10 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs", "src\app\Aec.Cqrs\Aec.Cqrs.csproj", "{97EE98C1-E93A-408F-BB65-010DA110ECDB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Tests.Unit", "src\test\Aec.Cqrs.Tests.Unit\Aec.Cqrs.Tests.Unit.csproj", "{915B36C8-FEFB-466D-8E11-71F5092E2343}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B87E09DD-9FEC-4084-8FC6-8A27C68D17B8}"
 	ProjectSection(SolutionItems) = preProject
 		src\packaging\Nuget\Aec.Cqrs.Client.nuspec = src\packaging\Nuget\Aec.Cqrs.Client.nuspec
@@ -14,19 +10,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		build.cmd = build.cmd
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CQRS", "CQRS", "{22B586E9-0818-4521-9196-84292A64A57B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{19D8C839-4589-41F3-9A5A-E3DC3F3CF400}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{52814269-5C7B-47A4-9409-9BC87021A8A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs", "src\app\Aec.Cqrs\Aec.Cqrs.csproj", "{97EE98C1-E93A-408F-BB65-010DA110ECDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Tests.Unit", "src\test\Aec.Cqrs.Tests.Unit\Aec.Cqrs.Tests.Unit.csproj", "{915B36C8-FEFB-466D-8E11-71F5092E2343}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.EventStorage", "src\app\Aec.Cqrs.EventStorage\Aec.Cqrs.EventStorage.csproj", "{806EE2C1-0200-4B99-8444-279F6664D2CB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.Client", "src\app\Aec.Cqrs.Client\Aec.Cqrs.Client.csproj", "{4672B68B-73EA-4CF4-B1AE-A848EBDB7172}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Cqrs.WebUI", "src\app\Aec.Cqrs.WebUI\Aec.Cqrs.WebUI.csproj", "{1F661714-AAD7-49DB-8F93-A00D5BC39BD8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CQRS", "CQRS", "{22B586E9-0818-4521-9196-84292A64A57B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{19D8C839-4589-41F3-9A5A-E3DC3F3CF400}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aec.Infrastructure", "src\app\Aec.Infrastructure\Aec.Infrastructure.csproj", "{5B513A74-60F9-4664-93CF-E04A81A1E8E3}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{52814269-5C7B-47A4-9409-9BC87021A8A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +63,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{97EE98C1-E93A-408F-BB65-010DA110ECDB} = {22B586E9-0818-4521-9196-84292A64A57B}
 		{915B36C8-FEFB-466D-8E11-71F5092E2343} = {22B586E9-0818-4521-9196-84292A64A57B}
 		{806EE2C1-0200-4B99-8444-279F6664D2CB} = {22B586E9-0818-4521-9196-84292A64A57B}
 		{4672B68B-73EA-4CF4-B1AE-A848EBDB7172} = {22B586E9-0818-4521-9196-84292A64A57B}
-		{97EE98C1-E93A-408F-BB65-010DA110ECDB} = {22B586E9-0818-4521-9196-84292A64A57B}
 		{5B513A74-60F9-4664-93CF-E04A81A1E8E3} = {19D8C839-4589-41F3-9A5A-E3DC3F3CF400}
 		{1F661714-AAD7-49DB-8F93-A00D5BC39BD8} = {52814269-5C7B-47A4-9409-9BC87021A8A7}
 	EndGlobalSection
