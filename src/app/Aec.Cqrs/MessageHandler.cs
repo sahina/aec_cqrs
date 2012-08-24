@@ -10,7 +10,8 @@ namespace Aec.Cqrs
     /// </summary>
     public sealed class MessageHandler
     {
-        public readonly IDictionary<Type, List<Action<object>>> Dict = new Dictionary<Type, List<Action<object>>>();
+        public static readonly IDictionary<Type, List<Action<object>>> Dict =
+            new Dictionary<Type, List<Action<object>>>();
 
         static readonly MethodInfo s_internalPreserveStackTraceMethod =
             typeof(Exception).GetMethod("InternalPreserveStackTrace", BindingFlags.Instance | BindingFlags.NonPublic);
