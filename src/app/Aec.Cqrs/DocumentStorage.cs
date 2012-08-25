@@ -23,6 +23,15 @@ namespace Aec.Cqrs
         public Maybe<TEntity> GetEntity<TEntity>(IIdentity key)
         {
             return m_store.GetReader<IIdentity, TEntity>().Get(key);
+        }
+
+        public IEnumerable<TEntity> GetAllEntities<TEntity>()
+        {
+            IEnumerable<TEntity> entities;
+
+            m_store.GetReader<IIdentity, TEntity>().TryGetAll(out entities);
+
+            return entities;
         } 
 
         public bool TryDeleteEntity<TEntity>(IIdentity key)

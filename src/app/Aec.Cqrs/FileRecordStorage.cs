@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 
@@ -104,23 +103,19 @@ namespace Aec.Cqrs
 
             try
             {
-                using (var sha1 = new SHA1Managed())
+                using (var memory = new MemoryStream())
                 {
-                    using (var memory = new MemoryStream())
-                    {
-                        var record = new SavedRecord(id, version, content);
-                        var formatter = new BinaryFormatter();
-                        formatter.Serialize(memory, record);
+                    var record = new SavedRecord(id, version, content);
+                    var formatter = new BinaryFormatter();
+                    formatter.Serialize(memory, record);
 
-                        var bytes = memory.ToArray();
+                    var bytes = memory.ToArray();
 
-                        writer = EnsureWriterExists(version);
-                        writer.Write(bytes, 0, bytes.Length);
-                    }
-
-                    writer.Write(sha1.Hash, 0, sha1.Hash.Length);
-                    writer.Flush(true);
+                    writer = EnsureWriterExists(version);
+                    writer.Write(bytes, 0, bytes.Length);
                 }
+
+                writer.Flush(true);
             }
             catch
             {
