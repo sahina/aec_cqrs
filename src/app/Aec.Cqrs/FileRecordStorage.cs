@@ -49,10 +49,15 @@ namespace Aec.Cqrs
             if (afterVersion > long.MaxValue - maxCount)
                 throw new ArgumentOutOfRangeException("maxCount", "Version will exceed long.MaxValue.");
 
-            var records = m_cache[m_id.GetIdenfitier()]
-                .Skip((int)afterVersion)
-                .Take(maxCount)
-                .ToArray();
+            var records = new SavedRecord[] { };
+
+            if (m_cache.Any())
+            {
+                records = m_cache[m_id.GetIdenfitier()]
+                    .Skip((int)afterVersion)
+                    .Take(maxCount)
+                    .ToArray();
+            }
 
             return records;
         }
