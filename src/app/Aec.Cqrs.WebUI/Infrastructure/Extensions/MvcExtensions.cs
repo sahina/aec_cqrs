@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -17,6 +18,19 @@ namespace Aec.Cqrs.WebUI.Infrastructure.Extensions
             }
 
             return string.Join(" ", errors).Trim();
+        }
+
+        public static IEnumerable<SelectListItem> ToSelectList<T>(this IEnumerable<T> items,
+            Func<T, string> text,
+            Func<T, string> value = null,
+            Func<T, Boolean> selected = null)
+        {
+            return items.Select(p => new SelectListItem
+            {
+                Text = text.Invoke(p),
+                Value = (value == null ? text.Invoke(p) : value.Invoke(p)),
+                Selected = selected != null && selected.Invoke(p)
+            });
         }
     }
 }
