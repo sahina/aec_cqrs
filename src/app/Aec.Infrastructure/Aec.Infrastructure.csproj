@@ -48,6 +48,7 @@
     <Compile Include="Framework\DynamicHelpers\DelegateAdjuster.cs" />
     <Compile Include="Framework\DynamicHelpers\PrivateReflectionDynamicObject.cs" />
     <Compile Include="Framework\DynamicHelpers\PrivateReflectionDynamicObjectExtensions.cs" />
+    <Compile Include="Framework\DynamicLinq\Dynamic.cs" />
     <Compile Include="Framework\Logging\ILogger.cs" />
     <Compile Include="Framework\Mappers\IObjectMapper.cs" />
     <Compile Include="Framework\Security\IHashService.cs" />
