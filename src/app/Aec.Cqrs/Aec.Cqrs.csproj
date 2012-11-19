@@ -65,6 +65,7 @@
     <Compile Include="IAggregate.cs" />
     <Compile Include="IAggregateRootFactory.cs" />
     <Compile Include="IAggregateState.cs" />
+    <Compile Include="IApplicationService.cs" />
     <Compile Include="IdentityConvert.cs" />
     <Compile Include="IDocumentReader.cs" />
     <Compile Include="IDocumentStore.cs" />

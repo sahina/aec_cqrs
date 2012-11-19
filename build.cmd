@@ -54,7 +54,7 @@ msbuild /nologo /verbosity:quiet aec.cqrs.sln /p:Configuration=%TARGET_CONFIG% /
 
 echo.
 echo === CREATING NUGET PACKAGE ===
-set NUGET_REPO_PATH=C:\Docs\AecNuGetRepository
+set NUGET_REPO_PATH=C:\Users\asahin\Documents\AecNuGetRepository
 
 echo Creating Aec.Infrastructure package
 copy src\packaging\Nuget\Aec.Infrastructure.nuspec output\bin
