@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>Aec.Cqrs</id>
-        <version>1.0.53</version>
+        <version>1.0.54</version>
         <authors>Altug Sahin</authors>
         <owners>Altug Sahin</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>

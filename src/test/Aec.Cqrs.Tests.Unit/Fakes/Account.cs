@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace Aec.Cqrs.Tests.Unit.Fakes
 {

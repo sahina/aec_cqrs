@@ -42,6 +42,16 @@ namespace Aec.Cqrs
             }
         }
 
+        public static bool operator ==(Identity<TKey> left, Identity<TKey> right)
+        {
+            return Equals(left, null) ? (Equals(right, null)) : left.Equals(right);
+        }
+
+        public static bool operator !=(Identity<TKey> left, Identity<TKey> right)
+        {
+            return !(left == right);
+        }
+
         #region Implementation of IIdentity
 
         public string GetIdenfitier()
