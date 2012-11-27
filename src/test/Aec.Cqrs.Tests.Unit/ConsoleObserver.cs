@@ -6,7 +6,7 @@ namespace Aec.Cqrs.Tests.Unit
     {
         public void OnNext(ISystemEvent value)
         {
-            RedirectToWhen.InvokeEvent(this, value);
+            ((dynamic)this).When((dynamic)value);
         }
 
         public void OnError(Exception error) { }

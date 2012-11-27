@@ -44,7 +44,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
 
         public void Execute(ICommand<AccountID> c)
         {
-            RedirectToWhen.InvokeCommand(this, c);
+            ((dynamic)this).When((dynamic)c);
         }
 
         #endregion

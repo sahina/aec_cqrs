@@ -27,7 +27,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
         public void Apply(IEvent<IIdentity> e)
         {
             Version += 1;
-            RedirectToWhen.InvokeEvent(this, e);
+            ((dynamic)this).When((dynamic)e);
         }
 
         #endregion
