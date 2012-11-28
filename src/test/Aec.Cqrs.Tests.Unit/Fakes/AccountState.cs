@@ -10,7 +10,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
 
         public AccountState(IEnumerable<IEvent<IIdentity>> eventHistory)
         {
-            eventHistory.ToList().ForEach(Apply);
+            eventHistory.ToList().ForEach(Mutate);
         }
 
         #region Implementation of IAccountState
@@ -24,7 +24,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
 
         #region Implementation of IAggregateState
 
-        public void Apply(IEvent<IIdentity> e)
+        public void Mutate(IEvent<IIdentity> e)
         {
             Version += 1;
             ((dynamic)this).When((dynamic)e);

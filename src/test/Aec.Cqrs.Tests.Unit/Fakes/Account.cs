@@ -22,7 +22,7 @@ namespace Aec.Cqrs.Tests.Unit.Fakes
 
         void Apply(IEvent<AccountID> e)
         {
-            m_state.Apply(e);
+            m_state.Mutate(e);
             m_observer(e);
         }
 

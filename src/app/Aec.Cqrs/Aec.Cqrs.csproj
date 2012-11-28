@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Aggregate.cs" />
     <Compile Include="AggregateRootFactory.cs" />
+    <Compile Include="AggregateState.cs" />
     <Compile Include="Applied.cs" />
     <Compile Include="BinaryDocumentStrategy.cs" />
     <Compile Include="CommandContext.cs" />
