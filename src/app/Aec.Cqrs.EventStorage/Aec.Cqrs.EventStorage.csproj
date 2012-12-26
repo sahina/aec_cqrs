@@ -34,6 +34,9 @@
     <Reference Include="EventStore">
       <HintPath>..\..\..\thirdparty\libs\nugetpackages\EventStore.3.0.11326.44\lib\net40\EventStore.dll</HintPath>
     </Reference>
+    <Reference Include="EventStore.Serialization.Json">
+      <HintPath>..\..\..\thirdparty\libs\nugetpackages\EventStore.Serialization.Json.3.0.11326.44\lib\net40\EventStore.Serialization.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventStoreRecordStorage.cs" />
+    <Compile Include="EventStoreRecordStorageConfig.cs" />
+    <Compile Include="EventStoreRecordStorageFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +58,10 @@
     <ProjectReference Include="..\Aec.Cqrs\Aec.Cqrs.csproj">
       <Project>{97EE98C1-E93A-408F-BB65-010DA110ECDB}</Project>
       <Name>Aec.Cqrs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aec.Infrastructure\Aec.Infrastructure.csproj">
+      <Project>{5B513A74-60F9-4664-93CF-E04A81A1E8E3}</Project>
+      <Name>Aec.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

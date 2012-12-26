@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Aec.Infrastructure.Framework.Logging;
 using EventStore;
 
 namespace Aec.Cqrs.EventStorage
@@ -10,14 +11,16 @@ namespace Aec.Cqrs.EventStorage
         private readonly Guid m_streamID;
         private readonly IIdentity m_identity;
         private readonly IStoreEvents m_storage;
+        private readonly ILogger m_logger;
 
-        public EventStoreRecordStorage(IIdentity identity, IStoreEvents storage)
+        public EventStoreRecordStorage(IIdentity identity, IStoreEvents storage, ILogger logger)
         {
             if (storage == null)
                 throw new ArgumentException("storage");
 
             m_identity = identity;
             m_storage = storage;
+            m_logger = logger;
 
 
             if (!Guid.TryParse(identity.GetIdenfitier(), out m_streamID))
@@ -73,8 +76,10 @@ namespace Aec.Cqrs.EventStorage
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                m_logger.LogError(e);
+
                 return false;
             }
         }

@@ -50,6 +50,7 @@
     <Compile Include="Framework\DynamicHelpers\PrivateReflectionDynamicObjectExtensions.cs" />
     <Compile Include="Framework\DynamicLinq\Dynamic.cs" />
     <Compile Include="Framework\Logging\ILogger.cs" />
+    <Compile Include="Framework\Logging\NullLogger.cs" />
     <Compile Include="Framework\Mappers\IObjectMapper.cs" />
     <Compile Include="Framework\Security\IHashService.cs" />
     <Compile Include="Framework\Security\MD5HashService.cs" />
